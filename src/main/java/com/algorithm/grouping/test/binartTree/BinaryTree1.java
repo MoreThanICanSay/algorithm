@@ -44,6 +44,30 @@ public class BinaryTree1 {
     }
 
     /**
+     * 二叉树非递归中序遍历
+     *
+     * @param root
+     */
+    public static void inOrderTravelWithStack(TreeNode root) {
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode treeNode = root;
+        while (treeNode != null || !stack.isEmpty()) {
+            // 迭代访问节点的左孩子，并入栈
+            while (treeNode != null) {
+//            System.out.println(treeNode.data);
+                stack.push(treeNode);
+                treeNode = treeNode.leftChild;
+            }
+            // 如果节点没有左孩子，弹出栈顶节点，访问节点的右孩子
+            if (!stack.isEmpty()) {
+                treeNode = stack.pop();
+                System.out.println(treeNode.data);
+                treeNode = treeNode.rightChild;
+            }
+        }
+    }
+
+    /**
      * 构建二叉树 链表节点的顺序是二叉树前序遍历的顺序
      *
      * @param inputList 输入序列
@@ -72,6 +96,8 @@ public class BinaryTree1 {
         TreeNode treeNode = createBinaryTree(inputList);
 
         System.out.println("前序遍历：");
-        preOrderTraveralWithStack(treeNode);
+//        preOrderTraveralWithStack(treeNode);
+        System.out.println("中序遍历：");
+        inOrderTravelWithStack(treeNode);
     }
 }
