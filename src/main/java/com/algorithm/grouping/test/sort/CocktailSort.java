@@ -5,6 +5,7 @@ import java.util.Arrays;
 /**
  * 鸡尾酒排序
  * 第一轮从左到右，第二轮从右到左
+ * 适用于大部分元素是有序的
  */
 public class CocktailSort {
 
@@ -45,7 +46,7 @@ public class CocktailSort {
     }
 
     public static void main(String[] args) {
-        int[] array = new int[]{2, 3, 4, 5, 6, 7, 8, 1,0};
+        int[] array = new int[]{2, 3, 4, 5, 6, 7, 8, 1, 0};
         sort(array);
         System.out.println(Arrays.toString(array));
     }
